@@ -1,9 +1,12 @@
 name: Random Pronoun Change
 
-on:
-  schedule:
-    - cron: '0 * * * *' # Run every day at midnight (UTC)
+# on:
+#   schedule:
+#     - cron: '0 * * * *' # Run every day at midnight (UTC)
 
+on:
+  workflow_dispatch:
+  
 jobs:
   change-pronouns:
     runs-on: ubuntu-latest
