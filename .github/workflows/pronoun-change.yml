@@ -20,3 +20,4 @@ jobs:
             await octokit.users.updateAuthenticated({ name: selectedPronouns });
 
             console.log(`Updated pronouns to: ${selectedPronouns}`);
+            
