@@ -8,6 +8,9 @@ jobs:
   change-pronouns:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Set Random Pronouns
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
