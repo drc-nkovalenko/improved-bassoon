@@ -1,0 +1,22 @@
+name: Random Pronoun Change
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Run every day at midnight (UTC)
+
+jobs:
+  change-pronouns:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Random Pronouns
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pronouns = ['he/him', 'she/her', 'they/them']; // Add more if needed
+            const randomIndex = Math.floor(Math.random() * pronouns.length);
+            const selectedPronouns = pronouns[randomIndex];
+
+            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+            await octokit.users.updateAuthenticated({ name: selectedPronouns });
+
+            console.log(`Updated pronouns to: ${selectedPronouns}`);
