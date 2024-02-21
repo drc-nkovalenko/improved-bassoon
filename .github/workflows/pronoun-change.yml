@@ -16,7 +16,7 @@ jobs:
             const randomIndex = Math.floor(Math.random() * pronouns.length);
             const selectedPronouns = pronouns[randomIndex];
 
-            const octokit = github.getOctokit(process.env.GITHUB_TOKEN);
+            const octokit = github.getOctokit(secrets.USER_UPDATE_TOKEN);
             await octokit.users.updateAuthenticated({ name: selectedPronouns });
 
             console.log(`Updated pronouns to: ${selectedPronouns}`);
